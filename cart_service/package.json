@@ -1,8 +1,8 @@
 {
-  "name": "cdk_deployment",
+  "name": "cart_service",
   "version": "0.1.0",
   "bin": {
-    "cdk_deployment": "bin/cdk_deployment.js"
+    "cart_service": "bin/cart_service.js"
   },
   "scripts": {
     "build": "tsc",

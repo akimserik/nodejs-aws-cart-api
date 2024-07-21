@@ -18,7 +18,9 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "build:lambda": "npm run build && zip -r function.zip dist/ node_modules/",
+    "deploy": "npm run build:lambda && cd cart_service && cdk deploy"
   },
   "dependencies": {
     "@codegenie/serverless-express": "^4.14.1",
