@@ -39,7 +39,6 @@ lerna-debug.log*
 
 *.zip
 cdk.out
-*.js
 !jest.config.js
 *.d.ts
 .env
