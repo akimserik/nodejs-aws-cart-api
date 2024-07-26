@@ -11,7 +11,7 @@ export class CartServiceStack extends cdk.Stack {
     // Lambda function
     const nestLambda = new lambda.Function(this, 'NestLambda', {
       runtime: lambda.Runtime.NODEJS_18_X,
-      handler: 'dist/main.handler',
+      handler: 'dist/src/main.handler',
       code: lambda.Code.fromAsset(join(__dirname, '..', '..', 'function.zip')),
     });
 

@@ -7,14 +7,15 @@ module.exports = {
     name: 'aws',
     runtime: 'nodejs20.x',
     stage: 'dev',
-    region: 'us-central-1',
+    region: 'eu-central-1',
+    timeout: 30,
   },
 
   plugins: ['serverless-offline'],
 
   functions: {
     app: {
-      handler: 'dist/main.handler',
+      handler: 'dist/src/main.handler',
       events: [
         {
           http: {
