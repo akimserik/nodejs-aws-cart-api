@@ -19,7 +19,7 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "build:lambda": "npm run build && zip -r function.zip dist/ node_modules/",
+    "build:lambda": "npm run build && zip -r function.zip dist/",
     "deploy": "npm run build:lambda && cd cart_service && cdk deploy",
     "serve:offline": "npm run build && serverless offline --config serverless.js"
   },
