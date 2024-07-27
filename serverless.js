@@ -15,7 +15,7 @@ module.exports = {
 
   functions: {
     app: {
-      handler: 'dist/src/main.handler',
+      handler: 'dist/main.handler',
       events: [
         {
           http: {

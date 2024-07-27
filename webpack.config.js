@@ -6,7 +6,12 @@ module.exports = (options, webpack) => {
 
   return {
     ...options,
+    entry: ['./src/main.ts'],
     externals: [],
+    output: {
+      ...options.output,
+      libraryTarget: 'commonjs2',
+    },
     plugins: [
       ...options.plugins,
       new webpack.IgnorePlugin({

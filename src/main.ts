@@ -28,6 +28,13 @@ async function getDatabaseCredentials() {
 async function bootstrap() {
   if (!cachedServer) {
     const dbCredentials = await getDatabaseCredentials();
+
+    process.env.DATABASE_HOST = dbCredentials.host;
+    process.env.DATABASE_PORT = dbCredentials.port;
+    process.env.DATABASE_USERNAME = dbCredentials.username;
+    process.env.DATABASE_PASSWORD = dbCredentials.password;
+    process.env.DATABASE_NAME = dbCredentials.dbname;
+
     const expressApp = express();
     const nestApp = await NestFactory.create(
       AppModule,
@@ -35,12 +42,6 @@ async function bootstrap() {
     );
 
     nestApp.enableCors();
-
-    process.env.DATABASE_HOST = dbCredentials.host;
-    process.env.DATABASE_PORT = dbCredentials.port;
-    process.env.DATABASE_USERNAME = dbCredentials.username;
-    process.env.DATABASE_PASSWORD = dbCredentials.password;
-    process.env.DATABASE_NAME = dbCredentials.dbname;
 
     await nestApp.init();
 

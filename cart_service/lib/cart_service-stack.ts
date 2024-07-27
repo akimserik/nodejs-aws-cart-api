@@ -15,12 +15,6 @@ export class CartServiceStack extends cdk.Stack {
       'arn:aws:secretsmanager:eu-central-1:767397742395:secret:rs-aws-nest-rds-db-secret-jT0Gqu',
     );
 
-    const lambdaLayer = new lambda.LayerVersion(this, 'NodeModulesLayer', {
-      code: lambda.Code.fromAsset(join(__dirname, '..', 'lambda-layer')),
-      compatibleRuntimes: [lambda.Runtime.NODEJS_20_X],
-      description: 'A layer for node_modules dependencies',
-    });
-
     // Lambda function
     const nestLambda = new lambda.Function(this, 'NestLambda', {
       runtime: lambda.Runtime.NODEJS_20_X,
@@ -29,7 +23,7 @@ export class CartServiceStack extends cdk.Stack {
       environment: {
         DB_SECRET_ARN: dbSecret.secretArn,
       },
-      layers: [lambdaLayer],
+      timeout: cdk.Duration.seconds(30),
     });
 
     dbSecret.grantRead(nestLambda);
