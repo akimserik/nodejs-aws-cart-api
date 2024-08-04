@@ -16,11 +16,3 @@ This document explains why certain files and directories are included in the `.d
 12. **`.vscode`, `.idea`**: IDE configuration files are not needed in the Docker context.
 13. **`coverage`**: Code coverage reports are not needed in the Docker context.
 14. **`test`**: Test files are not needed in the Docker context.
-
-## Optional Exclusions
-
-You can optionally include the following directories or files to further optimize the build context:
-
-1. **`documentation`**: If you have a directory for project documentation, it can be excluded.
-2. **`examples`**: If you have example code or projects, they can be excluded.
-3. **`scripts`**: If you have scripts that are not needed for the build process, they can be excluded.
