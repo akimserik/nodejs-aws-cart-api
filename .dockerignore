@@ -1,0 +1,16 @@
+node_modules
+dist
+cdk.out
+*.log
+*.ts
+*.map
+.dockerignore
+docker-compose.yml
+Dockerfile
+.env
+.git
+.gitignore
+.vscode
+.idea
+coverage
+test
